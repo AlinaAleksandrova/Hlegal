@@ -1,0 +1,35 @@
+@use '_variables.scss' as *;
+@mixin margin($mx, $my) {
+    margin-top: $mx;
+    margin-bottom: $my;
+}
+
+@mixin widthHeight($w, $h) {
+    width: $w;
+    height: $h;
+}
+
+@mixin styleText($col, $fs, $fw, $lh) {
+    color: $col;
+    font-size: $fs;
+    font-weight: $fw;
+    line-height: $lh;
+}
+
+@mixin beforeAfter($background, $b, $w, $l) {
+    content: '';
+    border-radius: $borderRadius;
+    display: block;
+    height: 10px;
+    position: absolute;
+    background: $background;
+    bottom: $b;
+    width: $w;
+    left: $l;
+}
+
+@mixin displayFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
