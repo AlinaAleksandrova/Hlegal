@@ -1,5 +1,5 @@
-@use '_variables' as *;
-@use '_mixin' as *;
+@use 'variables' as *;
+@use 'mixin' as *;
 .sectionBlog {
     background-color: #F5F5FA;
     padding-top: 30px;
@@ -8,36 +8,39 @@
             display: grid;
             gap: 30px;
             grid-template-areas: "a a b b" "a a b b" "c c c c";
-            .item-a {
-                grid-area: a;
-            }
-            .item-b {
-                grid-area: b;
-            }
-            .item-c {
-                grid-area: c;
-            }
         }
         @media (min-width: $desctop) {
             @include gridCol(3);
             grid-template-areas: none;
-            .item-a,
-            .item-b,
-            .item-c {
-                grid-area: auto;
-            }
         }
         .item {
             background-color: #fff;
             border-radius: 12px;
+            overflow: hidden;
             @include margin (0, 30px);
             &:last-of-type {
                 @include margin (0, 0);
             }
+            @media (min-width: $tablet) {
+                &-a {
+                    grid-area: a;
+                }
+                &-b {
+                    grid-area: b;
+                }
+                &-c {
+                    grid-area: c;
+                }
+            }
+            @media (min-width: $desctop) {
+                @include margin (0, 0);
+                grid-area: auto;
+            }
             img {
                 width: 100%;
-                @media (min-width: $desctop) {
-                    height: 200px;
+                @media (min-width: $tablet) {
+                    max-height: 200px;
+                    object-fit: cover;
                 }
             }
             .blogWrap {
@@ -62,10 +65,6 @@
                 .blogWrapDescription {
                     @include styleText(#000, 14px, 400, 22px);
                     @include margin (0, 0);
-                    @media (min-width: $desctop) {
-                        height: 88px;
-                        overflow: hidden;
-                    }
                 }
             }
         }

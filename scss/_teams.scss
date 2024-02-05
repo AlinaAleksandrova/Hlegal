@@ -1,11 +1,12 @@
-@use '_variables' as *;
-@use '_mixin' as *;
+@use 'variables' as *;
+@use 'mixin' as *;
 .sectionTeams {
-    padding-top: 80px;
+    padding-top: 60px;
     padding-bottom: 60px;
     .container {
         background: #EDEDF7;
         border-radius: 12px;
+        overflow: hidden;
         @media (min-width: $desctop) {
             display: grid;
             grid-template-columns: 1fr 2fr;
@@ -15,15 +16,11 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            width: 100%;
-            height: 500px;
+            @include widthHeight(100%,
+            500px);
             @media (min-width: $desctop) {
-                width: 400px;
-                height: auto;
+                @include widthHeight(100%, auto);
             }
-            /*img {
-                width: 100%;
-            }*/
         }
         .wrapperInfo {
             padding: 30px;

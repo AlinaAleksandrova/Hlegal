@@ -1,41 +1,23 @@
-@use '_variables' as *;
-@use '_mixin' as *;
+@use 'variables' as *;
+@use 'mixin' as *;
 .sectionServices {
     border-radius: $borderRadius;
     background: linear-gradient(229deg, #323264 11.93%, #323264 57.17%, #643E72 87.46%);
     padding-bottom: 60px;
     position: relative;
+    margin-bottom: 20px;
     &::before {
-        @include beforeAfter(#CACADB, -10px, 5%, 5%);
-        @media (min-width: $tablet) {
-            left: 3%;
-            right: 3%;
-        }
-        @media (min-width: $desctop) {
-            left: 2%;
-            right: 2%;
-        }
-        @media (min-width: $desctopNormal) {
-            left: 1%;
-            right: 1%;
-        }
+        @include beforeAfter(#CACADB, 100%, 20px, 20px);
     }
     &::after {
-        @include beforeAfter(#E7E7F2, -20px, 10%, 10%);
-        @media (min-width: $tablet) {
-            left: 6%;
-            right: 6%;
-        }
-        @media (min-width: $desctop) {
-            left: 4%;
-            right: 4%;
-        }
-        @media (min-width: $desctopNormal) {
-            left: 2%;
-            right: 2%;
-        }
+        @include beforeAfter(#E7E7F2, calc(100% + 10px), 40px, 40px);
     }
     .wrapper {
+        @media (min-width: $tablet) {
+            .title {
+                margin-bottom: 60px
+            }
+        }
         .nameTitle {
             @include margin(0, 12px);
         }
@@ -65,7 +47,7 @@
                         border-radius: 24px;
                     }
                     .nameServices {
-                        @include styleText($blue, 22px, 700, 1);
+                        @include styleText($blue, 22px, 700, 28px);
                         @include margin(0, 15px);
                     }
                     .descriptionServices {

@@ -1,8 +1,9 @@
-@use '_variables' as *;
-@use '_mixin' as *;
+@use 'variables' as *;
+@use 'mixin' as *;
 .sectionLogo {
     @media (min-width: $desctopBig) {
         padding-bottom: 60px;
+        @include paddingLeftRight(100px, 100px);
     }
     .titleLogo {
         @include styleText(#323264, 14px, 700, 1);
@@ -19,18 +20,17 @@
         @media (min-width: $desctop) {
             @include gridCol(4);
         }
-        @media (min-width: 1920px) {
-            padding: 0px 100px;
+        @media (min-width: $desctopBig) {
             border-radius: 12px;
+            overflow: hidden;
         }
-        &>div {
+        &>a {
             @include displayFlex;
-            height: 120px;
+            @include widthHeight(100%, 120px);
             &:nth-child(n+7) {
                 display: none;
             }
             @media (min-width: $tablet) {
-                width: 100%;
                 &:nth-child(n+7) {
                     display: flex;
                 }

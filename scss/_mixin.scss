@@ -1,4 +1,4 @@
-@use '_variables' as *;
+@use 'variables' as *;
 @mixin margin($mx, $my) {
     margin-top: $mx;
     margin-bottom: $my;
@@ -23,7 +23,7 @@
     height: 10px;
     position: absolute;
     background: $background;
-    bottom: $b;
+    top: $b;
     right: $r;
     left: $l;
 }
@@ -38,21 +38,23 @@
     grid-template-columns: repeat($q, 1fr);
 }
 
+@mixin paddingLeftRight($pl, $pr) {
+    padding-left: $pl;
+    padding-right: $pr;
+}
+
 @mixin paddingMobile {
-    padding-left: 30px;
-    padding-right: 30px;
+    @include paddingLeftRight(30px, 30px);
 }
 
 @mixin paddingTablet {
     @media (min-width: $tablet) {
-        padding-left: 60px;
-        padding-right: 60px;
+        @include paddingLeftRight(60px, 60px);
     }
 }
 
 @mixin paddingDescBig {
     @media (min-width: $desctopBig) {
-        padding-left: 160px;
-        padding-right: 160px;
+        @include paddingLeftRight(160px, 160px);
     }
 }
