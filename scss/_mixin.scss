@@ -1,4 +1,4 @@
-@use '_variables.scss' as *;
+@use '_variables' as *;
 @mixin margin($mx, $my) {
     margin-top: $mx;
     margin-bottom: $my;
@@ -16,7 +16,7 @@
     line-height: $lh;
 }
 
-@mixin beforeAfter($background, $b, $w, $l) {
+@mixin beforeAfter($background, $b, $r, $l) {
     content: '';
     border-radius: $borderRadius;
     display: block;
@@ -24,7 +24,7 @@
     position: absolute;
     background: $background;
     bottom: $b;
-    width: $w;
+    right: $r;
     left: $l;
 }
 
@@ -32,4 +32,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@mixin gridCol($q) {
+    grid-template-columns: repeat($q, 1fr);
+}
+
+@mixin paddingMobile {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+@mixin paddingTablet {
+    @media (min-width: $tablet) {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+}
+
+@mixin paddingDescBig {
+    @media (min-width: $desctopBig) {
+        padding-left: 160px;
+        padding-right: 160px;
+    }
 }

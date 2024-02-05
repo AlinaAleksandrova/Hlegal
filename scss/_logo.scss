@@ -1,16 +1,27 @@
-@use '_variables.scss' as *;
-@use '_mixin.scss' as *;
+@use '_variables' as *;
+@use '_mixin' as *;
 .sectionLogo {
-    .title {
+    @media (min-width: $desctopBig) {
+        padding-bottom: 60px;
+    }
+    .titleLogo {
         @include styleText(#323264, 14px, 700, 1);
-        @include margin(60px, 30px);
+        @include margin(0, 30px);
         text-transform: uppercase;
         text-align: center;
     }
     .wrapperLogo {
         @media (min-width: $tablet) {
-            @include displayFlex;
-            flex-wrap: wrap;
+            display: grid;
+            justify-items: center;
+            @include gridCol(3);
+        }
+        @media (min-width: $desctop) {
+            @include gridCol(4);
+        }
+        @media (min-width: 1920px) {
+            padding: 0px 100px;
+            border-radius: 12px;
         }
         &>div {
             @include displayFlex;
@@ -19,13 +30,10 @@
                 display: none;
             }
             @media (min-width: $tablet) {
-                width: 33.3%;
+                width: 100%;
                 &:nth-child(n+7) {
                     display: flex;
                 }
-            }
-            @media (min-width: $desctop) {
-                width: 25%;
             }
             img {
                 transition: 1s;

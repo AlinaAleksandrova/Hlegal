@@ -1,4 +1,5 @@
-@use '_variables.scss' as *;
+@use '_variables' as *;
+@use '_mixin' as *;
 html {
     scroll-behavior: smooth;
 }
@@ -8,11 +9,47 @@ body {
 }
 
 .wrapper {
-    padding: 0 30px;
-    @media (min-width: $desctop) {
-        padding: 0 60px;
+    @include paddingMobile;
+    @include paddingTablet;
+    @include paddingDescBig;
+}
+
+.nameTitle {
+    @include styleText($blue, 14px, 700, 1);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    &::after {
+        content: '';
+        background-image: url('#{$path}arrow.png');
+        @include widthHeight(12px,
+        12px);
+        display: inline-block;
     }
-    @media (min-width: $desctopBig) {
-        padding: 0 120px;
+    &:hover {
+        @include styleText(#F0145A,
+        14px,
+        700,
+        1);
+        cursor: pointer;
+        &::after {
+            background-image: url('#{$path}arrow-hover.png');
+        }
+    }
+}
+
+.title {
+    @include styleText($white,
+    30px,
+    700,
+    34px);
+    @include margin(0,
+    30px);
+    background: $backgroundTextGradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    @media (min-width: $tablet) {
+        font-size: 38px;
+        line-height: 42px;
     }
 }

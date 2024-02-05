@@ -1,96 +1,76 @@
-@use '_variables.scss' as *;
-@use '_mixin.scss' as *;
+@use '_variables' as *;
+@use '_mixin' as *;
 .sectionServices {
     border-radius: $borderRadius;
     background: linear-gradient(229deg, #323264 11.93%, #323264 57.17%, #643E72 87.46%);
     padding-bottom: 60px;
     position: relative;
     &::before {
-        @include beforeAfter(#CACADB, -10px, 90%, 5%);
+        @include beforeAfter(#CACADB, -10px, 5%, 5%);
+        @media (min-width: $tablet) {
+            left: 3%;
+            right: 3%;
+        }
+        @media (min-width: $desctop) {
+            left: 2%;
+            right: 2%;
+        }
+        @media (min-width: $desctopNormal) {
+            left: 1%;
+            right: 1%;
+        }
     }
     &::after {
-        @include beforeAfter(#E7E7F2, -20px, 79%, 10%);
+        @include beforeAfter(#E7E7F2, -20px, 10%, 10%);
+        @media (min-width: $tablet) {
+            left: 6%;
+            right: 6%;
+        }
+        @media (min-width: $desctop) {
+            left: 4%;
+            right: 4%;
+        }
+        @media (min-width: $desctopNormal) {
+            left: 2%;
+            right: 2%;
+        }
     }
     .wrapper {
         .nameTitle {
-            @include styleText($blue, 14px, 700, 1);
             @include margin(0, 12px);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            &::after {
-                content: '';
-                background-image: url('#{$path}arrow.png');
-                @include widthHeight(12px,
-                12px);
-                display: inline-block;
-            }
-            &:hover {
-                @include styleText(#F0145A,
-                14px,
-                700,
-                1);
-                cursor: pointer;
-                &::after {
-                    background-image: url('#{$path}arrow-hover.png');
-                }
-            }
-        }
-        .title {
-            @include styleText($white,
-            30px,
-            700,
-            1);
-            @include margin(0,
-            30px);
-            background: $backgroundTextGradient;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
         .wrapperListServices {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 60px;
-            justify-content: space-between;
+            @media (min-width: $tablet) {
+                display: grid;
+                gap: 60px;
+                @include gridCol(2);
+            }
+            @media (min-width: $desctop) {
+                @include gridCol(3);
+            }
             .cartServices {
-                @include margin(0,
-                30px);
+                @include margin(0, 30px);
                 &:last-of-type {
-                    @include margin(0,
-                    0);
+                    @include margin(0, 0);
                 }
                 @media (min-width:$tablet) {
-                    // width: 294px;
-                    width: 45%;
-                }
-                @media (min-width:$desctop) {
-                    width: 28%;
+                    @include margin(0, 0);
                 }
                 .wrappImg {
                     .containerServices {
                         @include displayFlex;
-                        @include widthHeight(92px,
-                        92px);
-                        @include margin(0,
-                        30px);
+                        @include widthHeight(92px, 92px);
+                        @include margin(0, 30px);
                         background-color: $white;
                         border-radius: 24px;
                     }
                     .nameServices {
-                        @include styleText($blue,
-                        22px,
-                        700,
-                        1);
-                        @include margin(0,
-                        15px);
+                        @include styleText($blue, 22px, 700, 1);
+                        @include margin(0, 15px);
                     }
                     .descriptionServices {
-                        @include styleText($white,
-                        16px,
-                        400,
-                        26px);
-                        @include margin(0,
-                        0);
+                        @include styleText($white, 16px, 400, 26px);
+                        @include margin(0, 0);
                     }
                 }
             }
