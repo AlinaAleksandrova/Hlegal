@@ -3,6 +3,25 @@
 .sectionTeams {
     padding-top: 60px;
     padding-bottom: 60px;
+    .dots {
+        display: flex;
+        margin-top: 30px;
+        justify-content: center;
+        .dot {
+            @include widthHeight(16px, 16px);
+            background-color: $blue;
+            opacity: .2;
+            margin-right: 15px;
+            border-radius: 50%;
+            &:last-of-type {
+                margin: 0;
+            }
+        }
+        .active {
+            background-color: $blue;
+            opacity: 1;
+        }
+    }
     .container {
         background: #EDEDF7;
         border-radius: 12px;

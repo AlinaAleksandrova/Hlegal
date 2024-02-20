@@ -24,6 +24,13 @@
                 width: auto;
             }
         }
+        .firstAddress {
+            @include flexCenter;
+            justify-content: space-between;
+            .wrapp {
+                @include flexCenter;
+            }
+        }
         address {
             margin-bottom: 10px;
             &:first-of-type {
@@ -43,6 +50,7 @@
                     margin-left: 10px;
                     margin-right: 10px;
                     border-radius: 50%;
+                    margin-bottom: 2px;
                 }
             }
         }
@@ -83,8 +91,12 @@
         }
         .facebook {
             @include widthHeight(38px, 38px);
+            margin: 0 auto;
             &:before {
                 content: none;
+            }
+            @media (min-width: $tablet) {
+                margin: 0;
             }
             svg {
                 path {
