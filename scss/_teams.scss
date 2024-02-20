@@ -47,3 +47,15 @@
         }
     }
 }
+
+@media (min-resolution: 192dpi) {
+    .sectionTeams .container .wrapper-img {
+        background-image: url('#{$path}image-blog@2x.jpg');
+    }
+}
+
+@media (min-resolution: 288dpi) {
+    .sectionTeams .container .wrapper-img {
+        background-image: url('#{$path}image-blog@3x.jpg');
+    }
+}

@@ -4,9 +4,9 @@
     background-color: #F5F5FA;
     padding-top: 30px;
     .container {
+        display: grid;
+        gap: 30px;
         @media (min-width: $tablet) {
-            display: grid;
-            gap: 30px;
             grid-template-areas: "a a b b" "a a b b" "c c c c";
         }
         @media (min-width: $desctop) {
@@ -17,7 +17,6 @@
             background-color: #fff;
             border-radius: 12px;
             overflow: hidden;
-            @include margin (0, 30px);
             &:last-of-type {
                 @include margin (0, 0);
             }
@@ -46,11 +45,14 @@
             .blogWrap {
                 padding: 30px;
                 .line {
-                    border-bottom: 4px solid #E6E6F0;
+                    height: 4px;
+                    background: #E6E6F0;
+                    border: none;
                 }
                 .blogWrapTitle {
                     @include styleText($blue, 16px, 700, 18px);
                     @include margin (0, 15px);
+                    transition: .3s;
                     &:hover {
                         cursor: pointer;
                         color: #F0145A;

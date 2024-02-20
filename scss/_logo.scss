@@ -23,6 +23,8 @@
         @media (min-width: $desctopBig) {
             border-radius: 12px;
             overflow: hidden;
+            width: 1720px;
+            margin: 0 auto;
         }
         &>a {
             @include displayFlex;

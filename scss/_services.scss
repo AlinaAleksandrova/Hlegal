@@ -2,7 +2,6 @@
 @use 'mixin' as *;
 .sectionServices {
     border-radius: $borderRadius;
-    background: linear-gradient(229deg, #323264 11.93%, #323264 57.17%, #643E72 87.46%);
     padding-bottom: 60px;
     position: relative;
     margin-bottom: 20px;
@@ -21,7 +20,7 @@
         .nameTitle {
             @include margin(0, 12px);
         }
-        .wrapperListServices {
+        .wrapperServices {
             @media (min-width: $tablet) {
                 display: grid;
                 gap: 60px;
@@ -30,7 +29,7 @@
             @media (min-width: $desctop) {
                 @include gridCol(3);
             }
-            .cartServices {
+            .cart {
                 @include margin(0, 30px);
                 &:last-of-type {
                     @include margin(0, 0);
@@ -38,22 +37,20 @@
                 @media (min-width:$tablet) {
                     @include margin(0, 0);
                 }
-                .wrappImg {
-                    .containerServices {
-                        @include displayFlex;
-                        @include widthHeight(92px, 92px);
-                        @include margin(0, 30px);
-                        background-color: $white;
-                        border-radius: 24px;
-                    }
-                    .nameServices {
-                        @include styleText($blue, 22px, 700, 28px);
-                        @include margin(0, 15px);
-                    }
-                    .descriptionServices {
-                        @include styleText($white, 16px, 400, 26px);
-                        @include margin(0, 0);
-                    }
+                .image {
+                    @include displayFlex;
+                    @include widthHeight(92px, 92px);
+                    @include margin(0, 30px);
+                    background-color: $white;
+                    border-radius: 24px;
+                }
+                .name {
+                    @include styleText($blue, 22px, 700, 28px);
+                    @include margin(0, 15px);
+                }
+                .description {
+                    @include styleText($white, 16px, 400, 26px);
+                    @include margin(0, 0);
                 }
             }
         }

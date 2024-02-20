@@ -1,0 +1,102 @@
+@use 'variables' as *;
+@use 'mixin' as *;
+.footer {
+    background-color: #F5F5FA;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    .wrapper {
+        text-align: center;
+        @include styleText( #B3B3BA, 16px, 400, 19px);
+        @media (min-width: $tablet) {
+            text-align: left;
+        }
+        hr {
+            height: 2px;
+            background-color: #E6E6F0;
+            border: none;
+            margin: 0;
+        }
+        a {
+            text-decoration: none;
+            width: 100%;
+            display: block;
+            @media (min-width: $tablet) {
+                width: auto;
+            }
+        }
+        address {
+            margin-bottom: 10px;
+            &:first-of-type {
+                margin-top: 30px;
+            }
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+            @media (min-width: $tablet) {
+                display: flex;
+                align-items: center;
+                a:before {
+                    content: '';
+                    @include widthHeight(6px, 6px);
+                    background-color: #B3B3BA;
+                    display: inline-block;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    border-radius: 50%;
+                }
+            }
+        }
+        .address {
+            color: #323264;
+            @media (min-width: $tablet) {
+                margin: 0;
+            }
+        }
+        .addressLink {
+            @include styleText($blue, 12px, 700, 15px);
+        }
+        .phone {
+            color: #323264;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        .email {
+            color: $blue;
+            font-weight: 700;
+            transition: .3s;
+            &:hover {
+                color: #F0145A;
+            }
+        }
+        .copyrightRight {
+            display: none;
+            margin: 0;
+            @media (min-width: $tablet) {
+                display: inline-block;
+            }
+        }
+        .copyright {
+            margin: 20px 0 0;
+            @media (min-width: $tablet) {
+                display: none;
+            }
+        }
+        .facebook {
+            @include widthHeight(38px, 38px);
+            &:before {
+                content: none;
+            }
+            svg {
+                path {
+                    fill: $blue;
+                    transition: .3s;
+                }
+                &:hover {
+                    path {
+                        fill: #F0145A;
+                    }
+                }
+            }
+        }
+    }
+}

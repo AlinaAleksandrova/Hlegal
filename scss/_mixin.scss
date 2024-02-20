@@ -34,6 +34,11 @@
     align-items: center;
 }
 
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+}
+
 @mixin gridCol($q) {
     grid-template-columns: repeat($q, 1fr);
 }
@@ -57,4 +62,20 @@
     @media (min-width: $desctopBig) {
         @include paddingLeftRight(160px, 160px);
     }
+}
+
+@mixin hamburgerLine {
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    height: 3px;
+    width: 30px;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@mixin backgroundGradient {
+    background: $backgroundTextGradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

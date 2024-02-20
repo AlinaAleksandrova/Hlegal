@@ -8,16 +8,26 @@ body {
     font-family: 'Montserrat';
 }
 
+.background {
+    background: linear-gradient(229deg, #323264 11.93%, #323264 57.17%, #643E72 87.46%);
+}
+
 .wrapper {
     @include paddingMobile;
     @include paddingTablet;
     @include paddingDescBig;
+    @media (min-width: $desctopBig) {
+        width: 1600px;
+        margin: 0 auto;
+        padding: 0;
+    }
 }
 
 .nameTitle {
     @include styleText($blue, 14px, 700, 1);
     letter-spacing: 1px;
     text-transform: uppercase;
+    transition: .3s;
     &::after {
         content: '';
         background-image: url('#{$path}arrow.png');
@@ -44,12 +54,37 @@ body {
     34px);
     @include margin(0,
     30px);
-    background: $backgroundTextGradient;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    @include backgroundGradient;
     @media (min-width: $tablet) {
         font-size: 38px;
         line-height: 42px;
     }
+}
+
+.languages {
+    a {
+        @include styleText($white,
+        12px,
+        700,
+        14px);
+        @include widthHeight (33px,
+        25px);
+        border-radius: 8px;
+        padding: 5px 7px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: .3s;
+    }
+    &__active {
+        background-color: #F0145A;
+    }
+}
+
+.phone-header {
+    @include styleText($white,
+    16px,
+    700,
+    19px);
+    text-decoration: none;
 }

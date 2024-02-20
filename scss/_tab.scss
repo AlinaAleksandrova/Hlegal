@@ -1,0 +1,131 @@
+@use 'variables' as *;
+@use 'mixin' as *;
+.sectionTabs {
+    margin-bottom: 30px;
+    @media (min-width: $tablet) {
+        margin-bottom: 60px;
+    }
+    @media (min-width: $desctop) {
+        @include paddingLeftRight(60px, 60px);
+    }
+    @media (min-width: $desctopNormal) {
+        @include paddingLeftRight(120px, 120px);
+    }
+    @media (min-width: $desctopBig) {
+        width: 1360px;
+        margin: 0 auto 60px;
+    }
+    .tabpanel {
+        @media (min-width: $desctop) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+        }
+        @media (min-width: $desctopNormal) {
+            grid-template-columns: 1fr 2fr;
+        }
+        .tab {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            overflow: scroll;
+            padding: 0 30px;
+            overflow: auto;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            &::-webkit-scrollbar {
+                width: 0;
+                height: 0;
+            }
+            @media (min-width: $tablet) {
+                padding: 0 60px;
+            }
+            @media (min-width: $desctop) {
+                @include flexCenter;
+                flex-wrap: wrap;
+                padding: 0;
+                justify-content: flex-end;
+                gap: 30px;
+            }
+            &__item {
+                list-style: none;
+                margin-right: 15px;
+                display: flex;
+                justify-content: space-between;
+                &:last-of-type {
+                    margin-right: 0;
+                }
+                @media (min-width: $desctop) {
+                    display: block;
+                    margin-right: 0;
+                    width: 100%;
+                    text-align: right;
+                }
+                a {
+                    @include styleText (#B3B3BA, 30px, 700, 36px);
+                    text-decoration: none;
+                    width: max-content;
+                    &:hover {
+                        color: #F0145A;
+                    }
+                    @media (min-width: $tablet) {
+                        font-size: 38px;
+                        line-height: 46px;
+                    }
+                }
+                .active {
+                    @include backgroundGradient;
+                }
+            }
+        }
+    }
+    .tab-content {
+        margin-top: 30px;
+        padding: 0 30px;
+        position: relative;
+        @media (min-width: $tablet) {
+            margin-top: 60px;
+            padding: 0 60px;
+        }
+        @media (min-width: $desctop) {
+            @include flexCenter;
+            margin-top: 0;
+            padding: 0;
+        }
+        .mobileLine {
+            background: rgba(255, 255, 255, .4);
+            height: 4px;
+            border: none;
+            margin-bottom: 30px;
+            @media (min-width: $tablet) {
+                margin-bottom: 60px;
+            }
+            @media (min-width: $desctop) {
+                width: 4px;
+                height: 100%;
+                position: absolute;
+                left: -30px;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .tabcontent {
+            display: none;
+            &.active {
+                display: block;
+                .content__title {
+                    @include styleText($white, 20px, 700, 24px);
+                    margin: 0 0 30px;
+                    @media (min-width: $tablet) {
+                        font-size: 30px;
+                        line-height: 36px;
+                    }
+                }
+                .content__introduction {
+                    @include styleText($white, 19px, 400, 30px);
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
