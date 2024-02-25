@@ -28,7 +28,12 @@
             @include flexCenter;
             justify-content: space-between;
             .wrapp {
-                @include flexCenter;
+                text-align: center;
+                width: 100%;
+                @media (min-width: $tablet) {
+                    @include flexCenter;
+                    width: auto;
+                }
             }
         }
         address {

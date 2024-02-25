@@ -65,6 +65,7 @@
                     @include styleText (#B3B3BA, 30px, 700, 36px);
                     text-decoration: none;
                     width: max-content;
+                    transition: 0.3s;
                     &:hover {
                         color: #F0145A;
                     }

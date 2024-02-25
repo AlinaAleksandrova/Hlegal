@@ -208,6 +208,7 @@ body {
   line-height: 36px;
   text-decoration: none;
   width: max-content;
+  transition: 0.3s;
 }
 .sectionTabs .tabpanel .tab__item a:hover {
   color: #F0145A;
@@ -611,7 +612,7 @@ body {
 }
 @media (min-width: 768px) {
   .sectionBlog .container .item img {
-    max-height: 200px;
+    height: 200px;
     object-fit: cover;
   }
 }
@@ -694,8 +695,15 @@ body {
   justify-content: space-between;
 }
 .footer .wrapper .firstAddress .wrapp {
-  display: flex;
-  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .footer .wrapper .firstAddress .wrapp {
+    display: flex;
+    align-items: center;
+    width: auto;
+  }
 }
 .footer .wrapper address {
   margin-bottom: 10px;
